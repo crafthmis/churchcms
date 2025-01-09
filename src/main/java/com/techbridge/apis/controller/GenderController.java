@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class GenderController extends BaseController {
 
-    @GetMapping("/counties")
+    @GetMapping("/genders")
     public ResponseEntity<Object> getCounties() {
         return genderService.getGenders();
     }

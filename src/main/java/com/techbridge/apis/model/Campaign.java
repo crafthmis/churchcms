@@ -20,7 +20,7 @@ public class Campaign {
     private String description;
     private String message;
     @Column(name="dispatch_date")
-    private Date dispatch_date;
+    private Date dispatchDate;
     @CreationTimestamp
     @Column(name="date_created")
     private Date dateCreated;

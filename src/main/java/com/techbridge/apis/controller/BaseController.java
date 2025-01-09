@@ -2,6 +2,7 @@ package com.techbridge.apis.controller;
 
 
 
+import com.techbridge.apis.service.BiodataService;
 import com.techbridge.apis.service.BranchService;
 import com.techbridge.apis.service.CountyService;
 import com.techbridge.apis.service.GenderService;
@@ -22,6 +23,8 @@ public class BaseController {
     public BranchService branchService;
     @Autowired
     public GenderService genderService;
+    @Autowired
+    public BiodataService biodataService;
     @Autowired
     protected PasswordEncoder passwordEncoder;
 }

@@ -9,7 +9,6 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 public class BiodataDto {
-    private Long bdtId;
     private Long gndId;
     private String firstName;
     private String middleName;

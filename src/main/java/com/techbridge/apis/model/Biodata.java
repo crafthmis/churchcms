@@ -31,7 +31,6 @@ public class Biodata {
     private String phone1;
     private String phone2;
     private LocalDate dob;
-
     @Transient
     private Integer age;
     @CreationTimestamp

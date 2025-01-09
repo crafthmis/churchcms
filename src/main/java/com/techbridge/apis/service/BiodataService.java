@@ -6,11 +6,11 @@ import com.techbridge.apis.excepions.CustomExtraErrorException;
 import com.techbridge.apis.model.Biodata;
 import com.techbridge.apis.model.dto.BiodataDto;
 import com.techbridge.apis.repository.BiodataRepository;
+import com.techbridge.apis.util.DateUtil;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -27,7 +27,7 @@ public class BiodataService {
     public ResponseEntity<Object> getBiodatas() {
         List<BiodataDto> BiodataDtos =  biodataRepository.findAll().stream()
                 .filter(Objects::nonNull)
-                .map(dto -> new BiodataDto(dto.getBdtId(),dto.getGndId(),dto.getFirstName(),dto.getMiddleName(),dto.getLastName(),dto.getIdNumber(),dto.getPhone1(),dto.getPhone2(),dto.getDob()))
+                .map(dto -> new BiodataDto(dto.getGndId(),dto.getFirstName(),dto.getMiddleName(),dto.getLastName(),dto.getIdNumber(),dto.getPhone1(),dto.getPhone2(),dto.getDob()))
                 .toList();
 
         throw new CustomExtraErrorException(HttpStatus.OK, "Records successfully retrieved",BiodataDtos);
@@ -38,7 +38,7 @@ public class BiodataService {
         if (Biodata.isEmpty()) {
             throw new CustomErrorException(HttpStatus.NOT_FOUND, "No such biodata with id: " + id);
         }
-        BiodataDto biodataDto = Biodata.map(dto -> new BiodataDto(dto.getBdtId(),dto.getGndId(),dto.getFirstName(),dto.getMiddleName(),dto.getLastName(),dto.getIdNumber(),dto.getPhone1(),dto.getPhone2(),dto.getDob())).orElseThrow(null);
+        BiodataDto biodataDto = Biodata.map(dto -> new BiodataDto(dto.getGndId(),dto.getFirstName(),dto.getMiddleName(),dto.getLastName(),dto.getIdNumber(),dto.getPhone1(),dto.getPhone2(),dto.getDob())).orElseThrow(null);
         throw new CustomExtraErrorException(HttpStatus.OK, "Records successfully retrieved", biodataDto);
     }
 
@@ -52,7 +52,8 @@ public class BiodataService {
             biodataRepository.save(biodata);
             throw new CustomErrorException(HttpStatus.CREATED, "Biodata created successfully");
         } else {
-            throw new CustomErrorException(HttpStatus.INTERNAL_SERVER_ERROR, "Something has gone wrong");
+            throw new CustomErrorException(HttpStatus.INTERNAL_SERVER_ERROR, HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase() );
+
         }
     }
 
@@ -73,6 +74,10 @@ public class BiodataService {
             biodata.setGndId(dto.getGndId());
             biodata.setFirstName(dto.getFirstName());
             biodata.setMiddleName(dto.getMiddleName());
+            biodata.setIdNumber(dto.getIdNumber());
+            biodata.setPhone1(dto.getPhone1());
+            biodata.setPhone2(dto.getPhone2());
+            biodata.setDob(dto.getDob());
             biodataRepository.save(biodata);
             throw new CustomErrorException(HttpStatus.CREATED, "Biodata updated successfully");
         }
