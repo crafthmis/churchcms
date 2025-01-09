@@ -9,6 +9,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.Optional;
 
 public interface CampaignRepository extends JpaRepository<Campaign,Long> {
-    @Query(value = "SELECT c FROM Campaign c WHERE b.name = :name")
+    @Query(value = "SELECT c FROM Campaign c WHERE c.name = :name")
     Optional<Campaign> findByName(@Param("name") String name);
 }

@@ -1,36 +1,37 @@
 package com.techbridge.apis.controller;
 
-import com.techbridge.apis.model.County;
+import com.techbridge.apis.model.Sermon;
+import com.techbridge.apis.model.dto.SermonDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-public class CountyController extends BaseController {
+public class SermonController extends BaseController {
 
-    @GetMapping("/counties")
-    public ResponseEntity<Object> getCounties() {
-        return countyService.getCounties();
+    @GetMapping("/sermons")
+    public ResponseEntity<Object> getSermons() {
+        return sermonService.getSermons();
     }
 
 
-    @GetMapping("/county/{id}")
-    public ResponseEntity<Object> getCounty(@PathVariable Long id) {
-        return countyService.getCounty(id);
+    @GetMapping("/sermon/{id}")
+    public ResponseEntity<Object> getSermon(@PathVariable Long id) {
+        return sermonService.getSermon(id);
     }
 
-    @PostMapping("/county/add")
-    public ResponseEntity<Object> addNewCounty(@RequestBody County county) {
-        return countyService.createNewCounty(county);
+    @PostMapping("/sermon/add")
+    public ResponseEntity<Object> addNewSermon(@RequestBody Sermon sermon) {
+        return sermonService.createNewSermon(sermon);
     }
 
-    @DeleteMapping("/county/{id}")
-    public ResponseEntity<Object> deleteCounty(@PathVariable Long id) {
-        return countyService.deleteCounty(id);
+    @DeleteMapping("/sermon/{id}")
+    public ResponseEntity<Object> deleteSermon(@PathVariable Long id) {
+        return sermonService.deleteSermon(id);
     }
 
-    @PutMapping("/county/{id}")
-    public ResponseEntity<Object> updateCounty(@PathVariable("id") Long id, @RequestParam(required = false) String name) {
-        return countyService.updateCounty(id, name);
+    @PutMapping("/sermon/{id}")
+    public ResponseEntity<Object> updateSermon(@PathVariable("id") Long id, @RequestParam(required = false) SermonDto dto) {
+        return sermonService.updateSermon(id, dto);
     }
 }

@@ -2,10 +2,7 @@ package com.techbridge.apis.controller;
 
 
 
-import com.techbridge.apis.service.BiodataService;
-import com.techbridge.apis.service.BranchService;
-import com.techbridge.apis.service.CountyService;
-import com.techbridge.apis.service.GenderService;
+import com.techbridge.apis.service.*;
 import com.techbridge.apis.util.PasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -25,6 +22,12 @@ public class BaseController {
     public GenderService genderService;
     @Autowired
     public BiodataService biodataService;
+    @Autowired
+    public CampaignService campaignService;
+    @Autowired
+    public SermonService sermonService;
+    @Autowired
+    public RoleService roleService;
     @Autowired
     protected PasswordEncoder passwordEncoder;
 }

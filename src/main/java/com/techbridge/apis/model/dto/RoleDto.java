@@ -1,5 +1,6 @@
 package com.techbridge.apis.model.dto;
 
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,9 +10,8 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @AllArgsConstructor
-public class SermonDto {
-    private Long brnId;
-    private String title;
+public class RoleDto {
+    private String  name;
     private String description;
-    private LocalDate sermonDate;
+    private Long isActive;
 }

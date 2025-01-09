@@ -23,7 +23,7 @@ public class CampaignService {
         this.campaignRepository = campaignRepository;
     }
 
-    public ResponseEntity<Object> getCampaignes() {
+    public ResponseEntity<Object> getCampaigns() {
         List<CampaignDto> CampaignDtos =  campaignRepository.findAll().stream()
                 .filter(Objects::nonNull)
                 .map(dto -> new CampaignDto(dto.getName(),dto.getDescription(),dto.getMessage(), dto.getDispatchDate()))
