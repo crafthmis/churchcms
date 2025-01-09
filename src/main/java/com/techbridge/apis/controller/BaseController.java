@@ -4,6 +4,7 @@ package com.techbridge.apis.controller;
 
 import com.techbridge.apis.service.BranchService;
 import com.techbridge.apis.service.CountyService;
+import com.techbridge.apis.service.GenderService;
 import com.techbridge.apis.util.PasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -19,6 +20,8 @@ public class BaseController {
     public CountyService countyService;
     @Autowired
     public BranchService branchService;
+    @Autowired
+    public GenderService genderService;
     @Autowired
     protected PasswordEncoder passwordEncoder;
 }

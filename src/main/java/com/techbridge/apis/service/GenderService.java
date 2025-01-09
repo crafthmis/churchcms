@@ -24,7 +24,7 @@ public class GenderService {
         this.genderRepository = genderRepository;
     }
 
-    public ResponseEntity<Object> getCounties() {
+    public ResponseEntity<Object> getGenders() {
         List<GenderDto> GenderDtos =  genderRepository.findAll().stream()
                 .filter(Objects::nonNull)
                 .map(dto -> new GenderDto(dto.getName()))
