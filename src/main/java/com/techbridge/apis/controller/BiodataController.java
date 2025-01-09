@@ -14,7 +14,6 @@ public class BiodataController extends BaseController {
         return biodataService.getBiodatas();
     }
 
-
     @GetMapping("/person/{id}")
     public ResponseEntity<Object> getBiodata(@PathVariable Long id) {
         return biodataService.getBiodata(id);

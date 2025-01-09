@@ -29,5 +29,9 @@ public class BaseController {
     @Autowired
     public RoleService roleService;
     @Autowired
+    public DependantService dependantService;
+    @Autowired
+    public FamilyService familyService;
+    @Autowired
     protected PasswordEncoder passwordEncoder;
 }
