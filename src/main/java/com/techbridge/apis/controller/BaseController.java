@@ -33,5 +33,13 @@ public class BaseController {
     @Autowired
     public FamilyService familyService;
     @Autowired
+    public EventService eventService;
+    @Autowired
+    public GroupService groupService;
+    @Autowired
+    public MessageService messageService;
+    @Autowired
+    public UserService userService;
+    @Autowired
     protected PasswordEncoder passwordEncoder;
 }

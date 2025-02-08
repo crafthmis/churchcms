@@ -13,9 +13,9 @@ import java.security.SecureRandom;
 @Component
 public class PasswordEncoder {
     
-    private final String SALT="N1JuL12#3@2021!!!";
+    private static final String SALT="N1JuL12#3@2021!!!";
 
-    public String get_SHA_512_SecurePassword(String passwordToHash) {
+    public static String get_SHA_512_SecurePassword(String passwordToHash) {
         String generatedPassword = null;
         byte[] salt=SALT.getBytes();
         try {

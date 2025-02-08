@@ -17,11 +17,11 @@ public class Event {
     @Column(name="evn_id")
     private Long evnId;
     @Column(name="brn_id")
-    private Long brn_id;
+    private Long brnId;
     @Column(name="ety_id")
     private Long etyId;
     @Column(name="is_pledgeable")
-    private Long is_pledgeable;
+    private Long isPledgeable;
     private String name;
     private String description;
     @Column(name="from_date")

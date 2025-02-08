@@ -21,6 +21,7 @@ public class User {
     @Column(name="mem_id")
     private Long memId;
     private String username;
+    private String email;
     private String password;
     @Column(name="is_reset_password")
     private String isReset;

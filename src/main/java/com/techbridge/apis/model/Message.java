@@ -22,13 +22,14 @@ public class Message {
     @Column(name="usr_id")
     private Long usrId;
     private String phone;
+    private String msg;
     private String hashmessage;
-    @Column(name="sent_status")
-    private String sentStatus;
-    @Column(name="recv_status")
-    private String recvStatus;
-    @Column(name="ack_status")
-    private String ackStatus;
+    @Column(name="sent_status", columnDefinition = "bigint default 0")
+    private int sentStatus;
+    @Column(name="recv_status", columnDefinition = "bigint default 0")
+    private int recvStatus;
+    @Column(name="ack_status", columnDefinition = "bigint default 0")
+    private int ackStatus;
     @CreationTimestamp
     @Column(name="date_created")
     private Date dateCreated;
